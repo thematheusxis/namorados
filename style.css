@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+    circle at center,
+    #0f2027 0%,      /* azul escuro chave */
+    #203a43 40%,     /* azul médio */
+    #2c5364 70%,     /* azul suave */
+    #1f2833 100%
+  );
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #e0e6f8; /* texto claro, suave */
+  position: relative;
+}
+
+/* Textura de brilho delicado */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+.container {
+  background: #fffbea;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  max-width: 600px;
+  margin-top: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #d32f2f;
+}
+
+.message {
+  color: #444;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Botão surpresa da carta - azul romântico */
+.surprise-button {
+  background-color: #2c5364; /* azul romântico */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.surprise-button:hover {
+  background-color: #1b3a47;
+}
+
+.letter-box {
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 20px;
+  font-family: "Courier New", monospace;
+  white-space: pre-line;
+  text-align: left;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Texto "Te amo" decorativo */
+.letter-box::before,
+.letter-box::after {
+  content: "Te amo 💖";
+  position: absolute;
+  font-size: 14px;
+  color: #f70000;
+  opacity: 0.7;
+}
+
+.letter-box::before {
+  top: 10px;
+  left: 15px;
+}
+
+.letter-box::after {
+  bottom: 10px;
+  right: 15px;
+}
+
+/* Botão fechar dentro da carta, azul romântico */
+.close-letter-button {
+  background-color: #2c5364;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.close-letter-button:hover {
+  background-color: #1b3a47;
+}
+
+.photos-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.photos-section h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Container das fotos (sem setas) */
+.photos-container {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+/* Fotos com scroll horizontal e responsivo */
+.photos {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
+}
+
+.photos img {
+  flex: 0 0 auto;
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  scroll-snap-align: center;
+}
+
+/* Pequenos ajustes no mobile */
+@media (max-width: 430px) {
+  .photos-container {
+    padding: 0 5px;
+  }
+
+  .photos img {
+    max-width: 180px;
+  }
+
+  .close-letter-button {
+    max-width: 100%;
+  }
+}
+
+/* Playlist Spotify incorporada */
+.spotify-embed {
+  margin-top: 40px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza o conteúdo */
+  padding-bottom: 10px; /* espaço abaixo do iframe */
+}
+
+.spotify-link {
+  margin-top: 12px;
+  color: #3a84ff; /* azul vivo */
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  transition: color 0.3s ease;
+}
+
+.spotify-link:hover {
+  color: #2459cc; /* azul vivo mais escuro no hover */
+}
